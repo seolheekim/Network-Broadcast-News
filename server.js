@@ -8,12 +8,12 @@ const server = net.createServer((socket) => {
 
   // Identify this client
   socket.name = socket.remoteAddress + ":" + socket.remotePort;
-  socket.write('Enter Username: ');
+  socket.write('Username: ');
   //console.log(socket.name);
 
   // Incoming messages from clients
   socket.on('data', (data) => {
-
+    //first data that is coming in from the data and taking the first user
     data = data.slice(0, data.length -1);
     if(socket.name === socket.remoteAddress + ":" + socket.remotePort) {
       socket.name = data;
